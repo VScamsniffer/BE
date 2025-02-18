@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'rp',
+    'uploadfile',
     'solution',
 
     #allauth
