@@ -140,6 +140,9 @@ myenv/
 ENV/
 env.bak/
 venv.bak/
+src
+.cache
+
 
 # Spyder project settings
 .spyderproject
@@ -162,11 +165,12 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+installed_packages.txt
 
 # Cython debug symbols
 cython_debug/
 secrets.json
-
+get-pip.py
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
