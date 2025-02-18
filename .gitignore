@@ -179,3 +179,5 @@ get-pip.py
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/djangolocal_storage/
+uploadfile/bertmodel.pkl
+uploadfile/kobert.pkl
