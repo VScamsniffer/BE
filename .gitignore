@@ -142,6 +142,9 @@ env.bak/
 venv.bak/
 myenv 
 myenv/
+src
+.cache
+
 
 # Spyder project settings
 .spyderproject
@@ -161,14 +164,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+kobert_env/
 
 # pytype static type analyzer
 .pytype/
+installed_packages.txt
 
 # Cython debug symbols
 cython_debug/
 secrets.json
-
+get-pip.py
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
@@ -176,4 +181,5 @@ secrets.json
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# End of https://www.toptal.com/developers/gitignore/api/django
+# End of https://www.toptal.com/developers/gitignore/api/djangouploadfile/bertmodel.pkl
+uploadfile/kobert.pkl
