@@ -1,0 +1,21 @@
+name: kobert_env
+channels:
+  - conda-forge
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.7.9
+  - urllib3==1.25.11
+  - numpy==1.16.6
+  - pandas==1.2.1
+  - boto3==1.24.31
+  - pip
+  - pip:
+      - django==3.2.18
+      - python-decouple==3.8
+      - mxnet==1.6.0
+      - transformers==3.1.0
+      - gluonnlp==0.10.0
+      - torch==1.12.0
+      - sentencepiece==0.1.91
+

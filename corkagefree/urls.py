@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from users.views import get_user_info, user_logout, protected_view, DataListView, AddDataView, naver_login_callback
+from uploadfile.views import upload_audio_file, analyze_file
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.views.generic import TemplateView  # React 파일을 서빙하기 위해 사용
@@ -20,5 +21,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html"), name='home'),
      path("api/data-list/", DataListView.as_view(), name="data_list"),
     path("api/add-data/", AddDataView.as_view(), name="add_data"),
+    path('upload-audio/', upload_audio_file, name='upload_audio_file'),
+    path('analyze-file/', analyze_file, name='analyze_file'),
 ]
 

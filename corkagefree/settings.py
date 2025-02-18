@@ -3,6 +3,7 @@ import os
 from datetime import timedelta
 from decouple import config
 
+
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,6 +26,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'rp',
+    'uploadfile',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -169,3 +171,9 @@ SOCIALACCOUNT_PROVIDERS = {
     'kakao': {'SCOPE': ['profile_nickname']},
     'naver': {'SCOPE': ['profile_nickname']},
 }
+
+# Azure Blob Storage Settings
+AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
+AZURE_ACCOUNT_KEY = config('AZURE_ACCOUNT_KEY')
+AZURE_CONTAINER = config('AZURE_CONTAINER')
+MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/"
