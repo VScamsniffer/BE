@@ -183,3 +183,4 @@ get-pip.py
 
 # End of https://www.toptal.com/developers/gitignore/api/djangouploadfile/bertmodel.pkl
 uploadfile/kobert.pkl
+uploadfile/bertmodel.pkl
