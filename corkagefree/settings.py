@@ -1,20 +1,52 @@
 from pathlib import Path
 import os
-from datetime import timedelta
+import requests
+import dotenv
 from decouple import config
+from datetime import timedelta
+from rest_framework_simplejwt.settings import api_settings
 
 
 # Build paths inside the project
+import requests
+import dotenv
+
+
+
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security Settings
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = True
+DEBUG = True # 개발 환경에서 True, 배포 환경에서는 False로 설정
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '40.82.157.231', 'vscamsniffer.work.gd']
 
 # Application Definition
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+dotenv.load_dotenv()
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+API_KEY=os.environ.get("SECRET_KEY")
+
+SECRET_KEY = config('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+
+# Application definition
+
 INSTALLED_APPS = [
     'daphne',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -23,10 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'rest_framework',
+    'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'users',
     'rp',
     'uploadfile',
+    'solution',
+
+    #allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -34,7 +70,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
     'channels',
-    'corsheaders',
+    "attach"
 ]
 
 # REST Framework Settings
@@ -173,7 +209,10 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 # Azure Blob Storage Settings
+DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureBlobStorage"
+
 AZURE_ACCOUNT_NAME = config('AZURE_ACCOUNT_NAME')
 AZURE_ACCOUNT_KEY = config('AZURE_ACCOUNT_KEY')
 AZURE_CONTAINER = config('AZURE_CONTAINER')
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/"
+AZURE_CUSTOM_DOMAIN = f"{AZURE_ACCOUNT_NAME}.blob.core.windows.net"

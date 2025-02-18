@@ -140,6 +140,8 @@ myenv/
 ENV/
 env.bak/
 venv.bak/
+myenv 
+myenv/
 src
 .cache
 
@@ -162,6 +164,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+kobert_env/
 
 # pytype static type analyzer
 .pytype/
