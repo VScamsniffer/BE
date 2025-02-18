@@ -6,6 +6,8 @@ import dotenv
 
 dotenv.load_dotenv()
 
+<<<<<<< HEAD
+=======
 key = os.getenv("SECRET_KEY")
 api_key = os.getenv("API_KEY")
 
@@ -14,6 +16,7 @@ print(key, api_key)
 
 
 
+>>>>>>> solution
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'corkagefree.settings')
